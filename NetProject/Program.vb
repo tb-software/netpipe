@@ -23,9 +23,9 @@ Public Module Program
         End If
     End Sub
 
-    Public Sub ShowRemoteResult(Optional customPresenter As IMessagePresenter = Nothing, Optional reader As ResultReader = Nothing)
+    Public Sub ShowRemoteResult(Optional customPresenter As IMessagePresenter = Nothing, Optional reader As IResultReader = Nothing)
         Dim presenter As IMessagePresenter = If(customPresenter, messagePresenter)
-        Dim resultReader As ResultReader = If(reader, New ResultReader())
+        Dim resultReader As IResultReader = If(reader, New ResultReader())
         Dim remoteResult As String = resultReader.FetchRemoteResultAsync().Result
         presenter.ShowMessage(remoteResult)
     End Sub

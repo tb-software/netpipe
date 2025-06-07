@@ -8,6 +8,7 @@ Imports System.Net.Http
 Imports System.Threading.Tasks
 
 Public Class ResultReader
+    Implements IResultReader
     Private ReadOnly httpClient As HttpClient
     Private Const ResultUrl As String = "http://t78.ch/apps/netpipe/result.ashx"
 
@@ -15,7 +16,8 @@ Public Class ResultReader
         httpClient = If(customClient, New HttpClient())
     End Sub
 
-    Public Overridable Async Function FetchRemoteResultAsync() As Task(Of String)
+    Public Overridable Async Function FetchRemoteResultAsync() As Task(Of String) _
+        Implements IResultReader.FetchRemoteResultAsync
         Dim response As HttpResponseMessage = Await httpClient.GetAsync(ResultUrl)
         response.EnsureSuccessStatusCode()
         Return Await response.Content.ReadAsStringAsync()
