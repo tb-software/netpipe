@@ -15,7 +15,7 @@ Public Class ResultReader
         httpClient = If(customClient, New HttpClient())
     End Sub
 
-    Public Async Function FetchRemoteResultAsync() As Task(Of String)
+    Public Overridable Async Function FetchRemoteResultAsync() As Task(Of String)
         Dim response As HttpResponseMessage = Await httpClient.GetAsync(ResultUrl)
         response.EnsureSuccessStatusCode()
         Return Await response.Content.ReadAsStringAsync()
