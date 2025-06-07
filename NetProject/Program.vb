@@ -11,6 +11,7 @@ Public Module Program
 
     Sub Main()
         ShowGreeting()
+        ShowRemoteResult()
     End Sub
 
     Public Sub ShowGreeting(Optional customPresenter As IMessagePresenter = Nothing)
@@ -20,5 +21,12 @@ Public Module Program
         Else
             messagePresenter.ShowMessage(greeting)
         End If
+    End Sub
+
+    Public Sub ShowRemoteResult(Optional customPresenter As IMessagePresenter = Nothing, Optional reader As ResultReader = Nothing)
+        Dim presenter As IMessagePresenter = If(customPresenter, messagePresenter)
+        Dim resultReader As ResultReader = If(reader, New ResultReader())
+        Dim remoteResult As String = resultReader.FetchRemoteResultAsync().Result
+        presenter.ShowMessage(remoteResult)
     End Sub
 End Module
