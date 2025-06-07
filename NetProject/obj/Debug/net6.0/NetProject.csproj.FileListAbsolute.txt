@@ -1,0 +1,4 @@
+G:\Development\TBS\NetPipeRemoteDotNet\NetProject\obj\Debug\net6.0\NetProject.GeneratedMSBuildEditorConfig.editorconfig
+G:\Development\TBS\NetPipeRemoteDotNet\NetProject\obj\Debug\net6.0\NetProject.AssemblyInfoInputs.cache
+G:\Development\TBS\NetPipeRemoteDotNet\NetProject\obj\Debug\net6.0\NetProject.AssemblyInfo.cs
+G:\Development\TBS\NetPipeRemoteDotNet\NetProject\obj\Debug\net6.0\NetProject.csproj.CoreCompileInputs.cache
