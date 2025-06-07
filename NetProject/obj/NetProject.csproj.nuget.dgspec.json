@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\Development\\TBS\\NetPipeRemoteDotNet\\NetProject\\NetProject.csproj": {}
+    "G:\\Development\\TBS\\netpipe\\NetProject\\NetProject.csproj": {}
   },
   "projects": {
-    "G:\\Development\\TBS\\NetPipeRemoteDotNet\\NetProject\\NetProject.csproj": {
+    "G:\\Development\\TBS\\netpipe\\NetProject\\NetProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Development\\TBS\\NetPipeRemoteDotNet\\NetProject\\NetProject.csproj",
+        "projectUniqueName": "G:\\Development\\TBS\\netpipe\\NetProject\\NetProject.csproj",
         "projectName": "NetProject",
-        "projectPath": "G:\\Development\\TBS\\NetPipeRemoteDotNet\\NetProject\\NetProject.csproj",
+        "projectPath": "G:\\Development\\TBS\\netpipe\\NetProject\\NetProject.csproj",
         "packagesPath": "C:\\Users\\timob\\.nuget\\packages\\",
-        "outputPath": "G:\\Development\\TBS\\NetPipeRemoteDotNet\\NetProject\\obj\\",
+        "outputPath": "G:\\Development\\TBS\\netpipe\\NetProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
