@@ -10,11 +10,11 @@ Imports System.Collections.Generic
 Public Module Program
     Private ReadOnly messagePresenter As IMessagePresenter = New MessageBoxPresenter()
 
-    Sub Main()
-        ShowGreeting()
-        ShowRemoteResult()
-        ShowBuildStatus()
-    End Sub
+    'Sub Main()
+    '    ShowGreeting()
+    '    ShowRemoteResult()
+    '    ShowBuildStatus()
+    'End Sub
 
     Public Sub ShowGreeting(Optional customPresenter As IMessagePresenter = Nothing)
         Dim greeting As String = "Hallo von Timo 3l!"
