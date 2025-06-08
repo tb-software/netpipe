@@ -1,8 +1,8 @@
-' 2025-06-07
+' 2025-06-08
 ' Determines build status from remote result file
 ' Author: Codex
 ' Created: 2025-06-07
-' Edited: 2025-06-07
+' Edited: 2025-06-08
 
 Imports System.Threading.Tasks
 
@@ -17,6 +17,7 @@ Public Class BuildStatusChecker
         Dim content As String = Await resultReader.FetchRemoteResultAsync()
         Dim parser As New BuildStatusParser()
         Dim code As Integer = parser.ParseExitCode(content)
-        Return New BuildStatus(code, content)
+        Dim size As Long = parser.ParseFileSize(content)
+        Return New BuildStatus(code, content, size)
     End Function
 End Class
