@@ -5,6 +5,7 @@
 ' Edited: 2025-06-07
 
 Imports System.Windows.Forms
+Imports System.Diagnostics
 
 Public Module Program
     Private ReadOnly messagePresenter As IMessagePresenter = New MessageBoxPresenter()
@@ -13,6 +14,8 @@ Public Module Program
         ShowGreeting()
         ShowRemoteResult()
     End Sub
+
+    Private Const BuildMonitorUrl As String = "http://t78.ch/apps/netpipe/"
 
     Public Sub ShowGreeting(Optional customPresenter As IMessagePresenter = Nothing)
         Dim greeting As String = "Hallo von Timo 3l!"
@@ -28,5 +31,10 @@ Public Module Program
         Dim resultReader As IResultReader = If(reader, New ResultReader())
         Dim remoteResult As String = resultReader.FetchRemoteResultAsync().Result
         presenter.ShowMessage(remoteResult)
+    End Sub
+
+    Public Sub OpenBuildMonitor(Optional browser As IBrowserService = Nothing)
+        Dim opener As IBrowserService = If(browser, New DefaultBrowserService())
+        opener.OpenUrl(BuildMonitorUrl)
     End Sub
 End Module
