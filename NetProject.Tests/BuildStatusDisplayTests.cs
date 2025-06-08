@@ -2,7 +2,7 @@ using NetProject;
 using System.Threading.Tasks;
 using Xunit;
 
-public class BuildStatusTests
+public class BuildStatusDisplayTests
 {
     private class FakeReader : ResultReader
     {
@@ -18,15 +18,22 @@ public class BuildStatusTests
         }
     }
 
-    [Fact]
-    public async Task GetCurrentStatusAsync_ReturnsSuccessWhenExitCodeZero()
+    private class FakePresenter : IMessagePresenter
     {
-        var content = "something\nExit code: 0\nFile size: 42\nmore";
+        public string? Message;
+        public void ShowMessage(string message) => Message = message;
+    }
+
+    [Fact]
+    public void ShowBuildStatus_DisplaysParsedInfo()
+    {
+        var content = "Exit code: 1\nFile size: 5";
         var reader = new FakeReader(content);
         var checker = new BuildStatusChecker(reader);
-        BuildStatus status = await checker.GetCurrentStatusAsync();
-        Assert.True(status.IsSuccess);
-        Assert.Equal(0, status.ExitCode);
-        Assert.Equal(42, status.FileSize);
+        var presenter = new FakePresenter();
+
+        Program.ShowBuildStatus(presenter, checker);
+
+        Assert.Equal("Exit code: 1, Size: 5", presenter.Message);
     }
 }
