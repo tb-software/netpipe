@@ -1,8 +1,8 @@
-' 2025-06-07 XXX
+' 2025-06-08 XXX
 ' Entry point of application
 ' Author: Codex
 ' Created: 2025-06-07
-' Edited: 2025-06-07
+' Edited: 2025-06-08
 
 Imports System.Windows.Forms
 
@@ -12,6 +12,7 @@ Public Module Program
     Sub Main()
         ShowGreeting()
         ShowRemoteResult()
+        ShowBuildStatus()
     End Sub
 
     Public Sub ShowGreeting(Optional customPresenter As IMessagePresenter = Nothing)
@@ -28,5 +29,13 @@ Public Module Program
         Dim resultReader As IResultReader = If(reader, New ResultReader())
         Dim remoteResult As String = resultReader.FetchRemoteResultAsync().Result
         presenter.ShowMessage(remoteResult)
+    End Sub
+
+    Public Sub ShowBuildStatus(Optional customPresenter As IMessagePresenter = Nothing, Optional checker As BuildStatusChecker = Nothing)
+        Dim presenter As IMessagePresenter = If(customPresenter, messagePresenter)
+        Dim statusChecker As BuildStatusChecker = If(checker, New BuildStatusChecker())
+        Dim status As BuildStatus = statusChecker.GetCurrentStatusAsync().Result
+        Dim message As String = $"Exit code: {status.ExitCode}, Size: {status.FileSize}"
+        presenter.ShowMessage(message)
     End Sub
 End Module
