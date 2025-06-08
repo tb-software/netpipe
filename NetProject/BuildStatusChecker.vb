@@ -18,6 +18,8 @@ Public Class BuildStatusChecker
         Dim parser As New BuildStatusParser()
         Dim code As Integer = parser.ParseExitCode(content)
         Dim size As Long = parser.ParseFileSize(content)
-        Return New BuildStatus(code, content, size)
+        Dim path As String = parser.ParseMappedPath(content)
+        Dim fileContent As String = parser.ParseFileContent(content)
+        Return New BuildStatus(code, content, size, path, fileContent)
     End Function
 End Class

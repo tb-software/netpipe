@@ -36,4 +36,17 @@ public class BuildStatusDisplayTests
 
         Assert.Equal("Exit code: 1, Size: 5", presenter.Message);
     }
+
+    [Fact]
+    public void ShowBuildStatus_IncludesPathIfAvailable()
+    {
+        var content = "Exit code: 1\nFile size: 5\nMapped path: /tmp/test";
+        var reader = new FakeReader(content);
+        var checker = new BuildStatusChecker(reader);
+        var presenter = new FakePresenter();
+
+        Program.ShowBuildStatus(presenter, checker);
+
+        Assert.Equal("Exit code: 1, Size: 5, Path: /tmp/test", presenter.Message);
+    }
 }

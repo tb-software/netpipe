@@ -5,6 +5,7 @@
 ' Edited: 2025-06-08
 
 Imports System.Windows.Forms
+Imports System.Collections.Generic
 
 Public Module Program
     Private ReadOnly messagePresenter As IMessagePresenter = New MessageBoxPresenter()
@@ -35,7 +36,14 @@ Public Module Program
         Dim presenter As IMessagePresenter = If(customPresenter, messagePresenter)
         Dim statusChecker As BuildStatusChecker = If(checker, New BuildStatusChecker())
         Dim status As BuildStatus = statusChecker.GetCurrentStatusAsync().Result
-        Dim message As String = $"Exit code: {status.ExitCode}, Size: {status.FileSize}"
+        Dim parts As New List(Of String) From {
+            $"Exit code: {status.ExitCode}",
+            $"Size: {status.FileSize}"
+        }
+        If Not String.IsNullOrWhiteSpace(status.MappedPath) Then
+            parts.Add($"Path: {status.MappedPath}")
+        End If
+        Dim message As String = String.Join(", ", parts)
         presenter.ShowMessage(message)
     End Sub
 End Module

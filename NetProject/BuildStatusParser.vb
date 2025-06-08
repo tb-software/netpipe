@@ -38,4 +38,26 @@ Public Class BuildStatusParser
         End If
         Return -1
     End Function
+
+    Public Function ParseMappedPath(content As String) As String
+        Const pattern As String = "Mapped path:"
+        Dim index As Integer = content.IndexOf(pattern, StringComparison.OrdinalIgnoreCase)
+        If index <> -1 Then
+            index += pattern.Length
+            Dim lineEnd As Integer = content.IndexOfAny(New Char() {Chr(10), Chr(13)}, index)
+            If lineEnd = -1 Then lineEnd = content.Length
+            Return content.Substring(index, lineEnd - index).Trim()
+        End If
+        Return String.Empty
+    End Function
+
+    Public Function ParseFileContent(content As String) As String
+        Const pattern As String = "Content:"
+        Dim index As Integer = content.IndexOf(pattern, StringComparison.OrdinalIgnoreCase)
+        If index <> -1 Then
+            index += pattern.Length
+            Return content.Substring(index).Trim()
+        End If
+        Return String.Empty
+    End Function
 End Class
