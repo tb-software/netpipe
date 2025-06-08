@@ -1,4 +1,4 @@
-﻿<Window x:Class="MainWindow"
+<Window x:Class="MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,6 +7,15 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <StackPanel Margin="10">
+            <Button x:Name="ShowGreetingButton" Content="Show Greeting"
+                    Click="ShowGreetingButton_Click" Margin="0,0,0,5" />
+            <Button x:Name="ShowRemoteResultButton" Content="Show Remote Result"
+                    Click="ShowRemoteResultButton_Click" Margin="0,0,0,5" />
+            <Button x:Name="ShowBuildStatusButton" Content="Show Build Status"
+                    Click="ShowBuildStatusButton_Click" Margin="0,0,0,5" />
+            <TextBox x:Name="OutputBox" Height="150" IsReadOnly="True"
+                     TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
+        </StackPanel>
     </Grid>
 </Window>
