@@ -7,6 +7,8 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "NetProject", "NetProject\Ne
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetProject.Tests", "NetProject.Tests\NetProject.Tests.csproj", "{789D2AB2-64AB-0A7F-7D1D-E9F19984F239}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "NetProject.TestUI", "NetProject.TestUI\NetProject.TestUI.vbproj", "{F2CB3CF4-36F7-494D-8DA2-785806D973F1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,8 +22,12 @@ Global
 		{789D2AB2-64AB-0A7F-7D1D-E9F19984F239}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{789D2AB2-64AB-0A7F-7D1D-E9F19984F239}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{789D2AB2-64AB-0A7F-7D1D-E9F19984F239}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{789D2AB2-64AB-0A7F-7D1D-E9F19984F239}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
+                {789D2AB2-64AB-0A7F-7D1D-E9F19984F239}.Release|Any CPU.Build.0 = Release|Any CPU
+                {F2CB3CF4-36F7-494D-8DA2-785806D973F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+                {F2CB3CF4-36F7-494D-8DA2-785806D973F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+                {F2CB3CF4-36F7-494D-8DA2-785806D973F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+                {F2CB3CF4-36F7-494D-8DA2-785806D973F1}.Release|Any CPU.Build.0 = Release|Any CPU
+        EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection

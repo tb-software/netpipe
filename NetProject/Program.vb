@@ -1,10 +1,10 @@
-' 2025-06-08 XXX
+' 2025-06-11
 ' Entry point of application
 ' Author: Codex
 ' Created: 2025-06-07
-' Edited: 2025-06-08
+' Edited: 2025-06-11
 
-Imports System.Windows.Forms
+Imports System.Windows
 Imports System.Collections.Generic
 
 Public Module Program
