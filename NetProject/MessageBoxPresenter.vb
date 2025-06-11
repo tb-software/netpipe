@@ -1,10 +1,10 @@
 ' 2025-06-07
-' Provides message display via Windows Forms MessageBox
+' Provides message display via WPF MessageBox
 ' Author: Codex
 ' Created: 2025-06-07
-' Edited: 2025-06-07
+' Edited: 2025-06-11
 
-Imports System.Windows.Forms
+Imports System.Windows
 
 Public Interface IMessagePresenter
     Sub ShowMessage(message As String)

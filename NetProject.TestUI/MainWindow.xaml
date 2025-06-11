@@ -1,0 +1,14 @@
+<Window x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:NetProject.TestUI"
+        Title="Test UI" Height="300" Width="400">
+    <Grid>
+        <StackPanel Margin="10">
+            <Button x:Name="ShowGreetingButton" Content="Show Greeting" Margin="0,0,0,5" />
+            <Button x:Name="ShowRemoteResultButton" Content="Show Remote Result" Margin="0,0,0,5" />
+            <Button x:Name="ShowBuildStatusButton" Content="Show Build Status" Margin="0,0,0,5" />
+            <TextBox x:Name="OutputBox" Height="120" IsReadOnly="True" TextWrapping="Wrap" />
+        </StackPanel>
+    </Grid>
+</Window>
